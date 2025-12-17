@@ -39,7 +39,7 @@ export const PACKAGES: ServicePackage[] = [
     id: 'p3',
     name: 'Agencia Full-Service Dedicada',
     codeName: 'PROTOCOLO: RESONANCIA',
-    price: '$2000',
+    price: '$3000',
     frequency: 'Annual',
     description: 'Departamento de marketing externalizado completo. Dominio total del sector y la competencia.',
     features: [
