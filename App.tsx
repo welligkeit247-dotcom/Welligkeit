@@ -250,7 +250,7 @@ const App: React.FC = () => {
 
             {/* Phone Block */}
             <div 
-              onClick={() => copyToClipboard('43543551', 'phone')}
+              onClick={() => copyToClipboard('2616615671', 'phone')}
               className="bg-white/5 border border-white/10 hover:border-hl-orange/50 hover:bg-white/10 p-6 cursor-pointer transition-all duration-300 group flex flex-col items-center justify-center gap-3 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity text-hl-orange">
@@ -259,7 +259,7 @@ const App: React.FC = () => {
               <Phone className={`w-8 h-8 ${copiedField === 'phone' ? 'text-green-500' : 'text-gray-400 group-hover:text-hl-orange'} transition-colors`} />
                <div className="text-center">
                 <div className="text-xs font-mono text-gray-500 uppercase mb-1">Línea Segura</div>
-                <div className="text-white font-mono text-sm sm:text-base">43543551</div>
+                <div className="text-white font-mono text-sm sm:text-base">2616615671</div>
               </div>
                {copiedField === 'phone' && (
                 <div className="absolute inset-0 bg-green-500/10 flex items-center justify-center backdrop-blur-sm">
