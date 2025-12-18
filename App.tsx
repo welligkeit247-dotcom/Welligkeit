@@ -24,7 +24,7 @@ const App: React.FC = () => {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ Set-Blockstart: 0, behavior: 'smooth' });
   };
 
   const copyToClipboard = (text: string, field: string) => {
