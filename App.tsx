@@ -27,10 +27,28 @@ const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const getIcon = (iconName: string) => {
+    switch (iconName) {
+      case 'activity': return <Activity className="w-6 h-6" />;
+      case 'lock': return <Lock className="w-6 h-6" />;
+      case 'shield': return <Shield className="w-6 h-6" />;
+      default: return <Terminal className="w-6 h-6" />;
+    }
+  };
+
   const copyToClipboard = (text: string, field: string) => {
     navigator.clipboard.writeText(text);
     setCopiedField(field);
     setTimeout(() => setCopiedField(null), 2000);
+  };
+
+  const getClearanceColor = (level: ClearanceLevel) => {
+    switch (level) {
+      case ClearanceLevel.RESTRICTED: return 'text-blue-400 border-blue-400/30 bg-blue-900/10';
+      case ClearanceLevel.CONFIDENTIAL: return 'text-hl-orange border-hl-orange/30 bg-hl-orange/10';
+      case ClearanceLevel.TOP_SECRET: return 'text-red-500 border-red-500/30 bg-red-900/10';
+      default: return 'text-slate-400 border-slate-400';
+    }
   };
 
   return (
@@ -188,7 +206,7 @@ const App: React.FC = () => {
               <h2 className="text-3xl font-bold text-white">ANÁLISIS DE RESONANCIA</h2>
             </div>
             <div className="font-mono text-xs text-gray-500">
-              HEURISTIC ENGINE V.4.0
+              AI-POWERED BY GEMINI 3 PRO
             </div>
           </div>
 
@@ -250,7 +268,7 @@ const App: React.FC = () => {
 
             {/* Phone Block */}
             <div 
-              onClick={() => copyToClipboard('2616615671', 'phone')}
+              onClick={() => copyToClipboard('43543551', 'phone')}
               className="bg-white/5 border border-white/10 hover:border-hl-orange/50 hover:bg-white/10 p-6 cursor-pointer transition-all duration-300 group flex flex-col items-center justify-center gap-3 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity text-hl-orange">
@@ -259,7 +277,7 @@ const App: React.FC = () => {
               <Phone className={`w-8 h-8 ${copiedField === 'phone' ? 'text-green-500' : 'text-gray-400 group-hover:text-hl-orange'} transition-colors`} />
                <div className="text-center">
                 <div className="text-xs font-mono text-gray-500 uppercase mb-1">Línea Segura</div>
-                <div className="text-white font-mono text-sm sm:text-base">2616615671</div>
+                <div className="text-white font-mono text-sm sm:text-base">43543551</div>
               </div>
                {copiedField === 'phone' && (
                 <div className="absolute inset-0 bg-green-500/10 flex items-center justify-center backdrop-blur-sm">

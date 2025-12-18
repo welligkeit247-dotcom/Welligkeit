@@ -22,7 +22,7 @@ export const PACKAGES: ServicePackage[] = [
     id: 'p2',
     name: 'Gestión de Publicidad y Video',
     codeName: 'PROTOCOLO: FRECUENCIA',
-    price: '$1.500',
+    price: '$1.100',
     frequency: 'Semestral',
     description: 'Despliegue de video corto y gestión de tráfico pago para saturación de zona de mercado.',
     features: [
@@ -39,7 +39,7 @@ export const PACKAGES: ServicePackage[] = [
     id: 'p3',
     name: 'Agencia Full-Service Dedicada',
     codeName: 'PROTOCOLO: RESONANCIA',
-    price: '$3000',
+    price: '$1800',
     frequency: 'Annual',
     description: 'Departamento de marketing externalizado completo. Dominio total del sector y la competencia.',
     features: [
