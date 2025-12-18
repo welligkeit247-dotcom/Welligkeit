@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Activity, Lock, Shield, ChevronRight, Menu, X, Radio, Crosshair, BarChart3, Terminal, Mail, Phone, Copy, Check, ArrowUp } from 'lucide-react';
-import { PACKAGES, NAV_LINKS } from './constants';
-import { ClearanceLevel } from './types';
+import { Lock, ChevronRight, Menu, X, Radio, Crosshair, Terminal as TerminalIcon, BarChart3, Mail, Phone, Copy, Check, ArrowUp } from 'lucide-react';
+import { PACKAGES, NAV_LINKS, CONTACT_INFO } from './constants';
 import { Analyzer } from './components/Analyzer';
 import { PricingCard } from './components/PricingCard';
 
@@ -24,31 +23,14 @@ const App: React.FC = () => {
   }, []);
 
   const scrollToTop = () => {
+    // IMPORTANTE: 'top' y 'behavior' son palabras reservadas, no traducir.
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'activity': return <Activity className="w-6 h-6" />;
-      case 'lock': return <Lock className="w-6 h-6" />;
-      case 'shield': return <Shield className="w-6 h-6" />;
-      default: return <Terminal className="w-6 h-6" />;
-    }
   };
 
   const copyToClipboard = (text: string, field: string) => {
     navigator.clipboard.writeText(text);
     setCopiedField(field);
     setTimeout(() => setCopiedField(null), 2000);
-  };
-
-  const getClearanceColor = (level: ClearanceLevel) => {
-    switch (level) {
-      case ClearanceLevel.RESTRICTED: return 'text-blue-400 border-blue-400/30 bg-blue-900/10';
-      case ClearanceLevel.CONFIDENTIAL: return 'text-hl-orange border-hl-orange/30 bg-hl-orange/10';
-      case ClearanceLevel.TOP_SECRET: return 'text-red-500 border-red-500/30 bg-red-900/10';
-      default: return 'text-slate-400 border-slate-400';
-    }
   };
 
   return (
@@ -180,7 +162,7 @@ const App: React.FC = () => {
               </p>
             </div>
             <div className="p-8 border border-white/10 bg-white/5 hover:border-hl-orange/50 transition-colors group">
-              <Terminal className="w-10 h-10 text-hl-orange mb-6" />
+              <TerminalIcon className="w-10 h-10 text-hl-orange mb-6" />
               <h3 className="text-xl font-bold text-white mb-3 font-mono">EJECUCIÓN DE CÓDIGO</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
                 Desarrollo de funnels de conversión automatizados y sistemas CRM que operan sin descanso para capturar y nutrir leads.
@@ -206,7 +188,7 @@ const App: React.FC = () => {
               <h2 className="text-3xl font-bold text-white">ANÁLISIS DE RESONANCIA</h2>
             </div>
             <div className="font-mono text-xs text-gray-500">
-              AI-POWERED BY GEMINI 3 PRO
+              HEURISTIC ENGINE V.4.0
             </div>
           </div>
 
@@ -239,7 +221,7 @@ const App: React.FC = () => {
       {/* Contact Section */}
       <section id="contact" className="py-24 relative overflow-hidden scroll-mt-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <Terminal className="w-12 h-12 text-hl-orange mx-auto mb-6 opacity-80" />
+          <TerminalIcon className="w-12 h-12 text-hl-orange mx-auto mb-6 opacity-80" />
           <h2 className="text-3xl font-bold text-white mb-6">ESTABLECER COMUNICACIÓN</h2>
           <p className="text-gray-400 mb-10">
             Nuestros canales están abiertos pero encriptados. Haga clic en los bloques de datos a continuación para copiar las coordenadas de transmisión.
@@ -248,7 +230,7 @@ const App: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             {/* Email Block */}
             <div 
-              onClick={() => copyToClipboard('Welligkeit247@gmail.com', 'email')}
+              onClick={() => copyToClipboard(CONTACT_INFO.email, 'email')}
               className="bg-white/5 border border-white/10 hover:border-hl-orange/50 hover:bg-white/10 p-6 cursor-pointer transition-all duration-300 group flex flex-col items-center justify-center gap-3 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity text-hl-orange">
@@ -257,7 +239,7 @@ const App: React.FC = () => {
               <Mail className={`w-8 h-8 ${copiedField === 'email' ? 'text-green-500' : 'text-gray-400 group-hover:text-hl-orange'} transition-colors`} />
               <div className="text-center">
                 <div className="text-xs font-mono text-gray-500 uppercase mb-1">Frecuencia de Correo</div>
-                <div className="text-white font-mono text-sm sm:text-base break-all">Welligkeit247@gmail.com</div>
+                <div className="text-white font-mono text-sm sm:text-base break-all">{CONTACT_INFO.email}</div>
               </div>
               {copiedField === 'email' && (
                 <div className="absolute inset-0 bg-green-500/10 flex items-center justify-center backdrop-blur-sm">
@@ -268,7 +250,7 @@ const App: React.FC = () => {
 
             {/* Phone Block */}
             <div 
-              onClick={() => copyToClipboard('43543551', 'phone')}
+              onClick={() => copyToClipboard(CONTACT_INFO.phoneDisplay, 'phone')}
               className="bg-white/5 border border-white/10 hover:border-hl-orange/50 hover:bg-white/10 p-6 cursor-pointer transition-all duration-300 group flex flex-col items-center justify-center gap-3 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity text-hl-orange">
@@ -277,7 +259,7 @@ const App: React.FC = () => {
               <Phone className={`w-8 h-8 ${copiedField === 'phone' ? 'text-green-500' : 'text-gray-400 group-hover:text-hl-orange'} transition-colors`} />
                <div className="text-center">
                 <div className="text-xs font-mono text-gray-500 uppercase mb-1">Línea Segura</div>
-                <div className="text-white font-mono text-sm sm:text-base">43543551</div>
+                <div className="text-white font-mono text-sm sm:text-base">{CONTACT_INFO.phoneDisplay}</div>
               </div>
                {copiedField === 'phone' && (
                 <div className="absolute inset-0 bg-green-500/10 flex items-center justify-center backdrop-blur-sm">

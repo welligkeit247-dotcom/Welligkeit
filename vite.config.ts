@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
-    base: './',
+    base: '/Welligkeit/',
     server: {
       port: 5173,
       host: true,

@@ -1,11 +1,17 @@
 import { ServicePackage, ClearanceLevel } from './types';
 
+export const CONTACT_INFO = {
+  email: 'Welligkeit247@gmail.com',
+  phoneDisplay: '2616615671',
+  whatsapp: '5492616615671', // Formato internacional para WhatsApp
+};
+
 export const PACKAGES: ServicePackage[] = [
   {
     id: 'p1',
     name: 'Creación de Contenido Táctico',
     codeName: 'PROTOCOLO: MEMÉTICA',
-    price: '$800',
+    price: '$1.200',
     frequency: 'Monthly',
     description: 'Generación de activos visuales y textuales para mantener presencia operativa en la red.',
     features: [
@@ -22,7 +28,7 @@ export const PACKAGES: ServicePackage[] = [
     id: 'p2',
     name: 'Gestión de Publicidad y Video',
     codeName: 'PROTOCOLO: FRECUENCIA',
-    price: '$1.100',
+    price: '$1.500',
     frequency: 'Semestral',
     description: 'Despliegue de video corto y gestión de tráfico pago para saturación de zona de mercado.',
     features: [
@@ -39,7 +45,7 @@ export const PACKAGES: ServicePackage[] = [
     id: 'p3',
     name: 'Agencia Full-Service Dedicada',
     codeName: 'PROTOCOLO: RESONANCIA',
-    price: '$1800',
+    price: '$3.000',
     frequency: 'Annual',
     description: 'Departamento de marketing externalizado completo. Dominio total del sector y la competencia.',
     features: [
